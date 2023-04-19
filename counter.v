@@ -21,3 +21,4 @@ module counter(input clk,input x,output reg a,output reg b,output reg c);
         q=q;
   end  
  endmodule
+ 
