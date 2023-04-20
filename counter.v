@@ -1,24 +1,22 @@
-module counter(input clk,input x,output reg a,output reg b,output reg c);
+module counter(input clk,input x,output  a,output  b,output  c);
   and(y1,!a,!b,!c);
   and(y2,a,b,c);
   or(ta,y1,y2);
-  tff tffa(clk,ta,a);
-  and(y3,!c,!b);
-  and(y4,b,c);
-  and(y5,!x,a,b);
-  or(tb,y3,y4,y5);
-  tff tffb(clk,tb,b);
-  and(y6,!x,!a);
-  or(tc,!b,c,x,y6);
-  tff tffc(clk,tc,c);
+  tff1 tffa(clk,ta,a);
+  and(y3,!c,!x);
+  and(y4,x,c);
+  or(tb,y3,y4);
+  tff1 tffb(clk,tb,b);
+  assign tc=1;
+  tff1 tffc(clk,tc,c);
   
   endmodule
- module tff ( input clk, input t, output reg q);  
+ module tff1 ( input clk, input t, output reg q);  
   always @ (posedge clk) begin  
     if (t==1)  
-      q =!q;  
+		q<=!q;  
     else  
-        q=q;
+        q<=q;
   end  
  endmodule
  
