@@ -1,3 +1,4 @@
+
 module full(input a,input b ,input cin,output s, output cout);
 xor(x1,a,b);
 xor(s,x1,cin);
@@ -52,3 +53,8 @@ and(e,~b,a);
 or(x0,c,e);
 not(d,x0);
 endmodule
+module project(input [7:0],input[7:0] b,output [7:0] c,output carry);
+wire less,equal,more;
+compare w0(a[3:0],b[3:0],less,equal,more);
+endmodule
+ 
